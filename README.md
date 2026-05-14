@@ -19,7 +19,7 @@ DocuSync reads your `contract.json` and outputs a self-contained `API_EXPLORER.h
 **Requirements:** Java 17 or higher — [download here](https://adoptium.net)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/docusync.git
+git clone https://github.com/Meshack-Nartey/docusync.git
 cd docusync
 ./install.sh
 ```
