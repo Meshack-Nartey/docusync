@@ -1,0 +1,118 @@
+{
+  "projectName": "User Management API",
+  "basePath": "http://localhost:8080/api/v1",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/users",
+      "description": "Retrieve a paginated list of all users. Supports query params: ?page=0&size=20",
+      "payload": null,
+      "headers": {
+        "Accept": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "description": "Create a new user account. Returns the created user object with a generated ID.",
+      "payload": {
+        "username": "johndoe",
+        "email": "john@example.com",
+        "role": "user",
+        "firstName": "John",
+        "lastName": "Doe"
+      },
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "description": "Retrieve a single user by their unique UUID. Responds with 404 if the user does not exist.",
+      "payload": null,
+      "headers": {
+        "Accept": "application/json"
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/users/{id}",
+      "description": "Replace all fields of an existing user. All body fields are required.",
+      "payload": {
+        "username": "johndoe_v2",
+        "email": "john.updated@example.com",
+        "role": "admin",
+        "firstName": "John",
+        "lastName": "Doe"
+      },
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/users/{id}",
+      "description": "Partially update an existing user. Only the provided fields are changed.",
+      "payload": {
+        "email": "new.email@example.com"
+      },
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/{id}",
+      "description": "Permanently delete a user from the system. This action cannot be undone.",
+      "payload": null,
+      "headers": {
+        "Accept": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "description": "Authenticate a user with email and password. Returns a signed JWT access token.",
+      "payload": {
+        "email": "admin@example.com",
+        "password": "supersecret"
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/refresh",
+      "description": "Exchange a valid refresh token for a new access token without re-authenticating.",
+      "payload": {
+        "refreshToken": "your-refresh-token-here"
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/logout",
+      "description": "Invalidate the current session by revoking the token on the server side.",
+      "payload": null,
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/users/{id}/roles",
+      "description": "List all roles assigned to a specific user.",
+      "payload": null,
+      "headers": {
+        "Accept": "application/json"
+      }
+    }
+  ]
+}
